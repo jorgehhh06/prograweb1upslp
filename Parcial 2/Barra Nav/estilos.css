@@ -1,0 +1,20 @@
+ul{
+	list-style-type: none;
+	width: 30%;
+	margin: 0px;
+	padding: 0px;
+}
+li a{/*Elementos a dentro de li*/
+	background-color: lightgreen;/*Hellgrün*/
+	color: white;/*weiß*/
+	display: block;
+	padding: 16px;
+	text-decoration: none;
+}
+li a:hover{
+	background-color: green;/*Grün*/
+}
+li .activo{
+	background-color: darkgreen;/*Dunkelgrün*/
+	color: white;/*weiß*/
+}
