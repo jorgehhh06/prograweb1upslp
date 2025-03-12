@@ -1,0 +1,56 @@
+.capa1{
+	margin-left: 25%;
+	padding: 12px;
+}
+ul{
+	list-style-type: none;
+	width: 20%;
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	background-color: lightgreen;/*Hellgrün*/
+	position: fixed;
+}
+li a{/*Elementos a dentro de li*/
+	background-color: lightgreen;/*Hellgrün*/
+	color: white;/*weiß*/
+	display: block;
+	padding: 16px;
+	text-decoration: none;
+}
+li a:hover{
+	background-color: green;/*Grün*/
+}
+li .activo{
+	background-color: darkgreen;/*Dunkelgrün*/
+	color: white;/*weiß*/
+}
+h1{
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+h2{
+	font-family: "Micro 5", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face{
+	font-family: fuente1;
+	src: url(Fonts/Rubik-VariableFont_wght.ttf)format(truetype);	
+}
+@font-face{
+	font-family: fuente2;
+	src: url(Fonts/Rubik-Italic-VariableFont_wght.ttf)format(truetype);	
+}
+p{
+	font-family: fuente1;
+	font-size: 18px;
+	text-align: justify;
+}
+.t2{
+	font-family: fuente2;
+	font-size: 18px;
+
+}
