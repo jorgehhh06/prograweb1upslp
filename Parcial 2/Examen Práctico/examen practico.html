@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Examen práctico Parcial 2</title>
+</head>
+<body style="background-color: lightblue;">
+<h1 style="text-align: center;">Examen práctico Parcial 2</h1>
+<h2 style="text-align: center;">Nombre del alumno(a): Jorge Haziel Herrera Hernández</h2>
+<table align="center">
+<tr>
+<td><button onmouseover="ocultar()" onmouseleave="mostrar()">Galería de imágenes</button>
+	<script type="text/javascript">
+		function ocultar(){
+			document.getElementById("tabla").style.visibility="hidden";
+		}
+		function mostrar(){
+			document.getElementById("tabla").style.visibility="visible";
+		}</script>
+<br/>
+</td>
+</tr>
+</table>
+<div class="galeria">
+<table id="tabla">
+	<tr>
+<div class="imagen">
+<td><img src="images/Schweden.png" alt="Schweden" width="50%"></td>
+</div>
+<div class="imagen">
+<td><img src="images/Nederland.png" alt="Nederland" width="50%"></td>
+</div>
+<div class="imagen">
+<td><img src="images/Deutschland.png" alt="Deutschland" width="80%"></td>
+</div>
+<div class="imagen">
+<td><img src="images/Dänmark.png" alt="Dänmark" width="75%"></td>
+</div>
+</tr>
+</table>
+
+
+</div>
+</body>
+</html>
