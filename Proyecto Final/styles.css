@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Notable&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fascinate&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -123,9 +124,18 @@ nav ul li a {
   line-height: 1.5;
 }
 .galeria {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   padding: 40px 20px;
   background-color: #fff;
   text-align: center;
+}
+@media(max-width:500px){
+  .contenido{
+    flex-direction: column;
+  }
+
 }
 
 .galeria h2 {
@@ -143,9 +153,13 @@ nav ul li a {
 }
 
 .media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
   flex: 1 1 300px;
-  max-width: 400px;
-  background-color: #f7f7f7;
+  max-width: 600px;
+  background-color: #d8eaff;
   border-radius: 10px;
   padding: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -154,6 +168,7 @@ nav ul li a {
 
 .media:hover {
   transform: scale(1.03);
+  background-color: #c0ccff;
 }
 
 .media img {
@@ -254,6 +269,10 @@ nav ul li a {
   .mision, .vision, .historia {
     width: 100%;
   }
+  .media iframe{
+    max-width: 320px;
+    max-height: 175px;
+  }
 }
 
 /* Sección de Reseñas */
@@ -286,7 +305,14 @@ nav ul li a {
 /* Sección de Contacto */
 .contacto {
   padding: 40px 20px;
+  width: 98%;
+  height: 98%;
+  border-radius: 8px;
   background-color: #f7f7f7;
+  margin-top: 6px;
+  margin-bottom: 5px;
+  margin-inline: 5px;
+
 }
 
 .contacto h2 {
@@ -300,6 +326,7 @@ nav ul li a {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+
 }
 
 .contacto label {
@@ -346,12 +373,23 @@ nav ul li a {
   background-color: #080034;
 }
 /* Pie de página */
+.seccion_ayuda{
+  margin-top: 10px;
+  background-color: #2a0161;
+  display: flex;
+  flex-direction: column;
+}
 footer {
   background-color: #001f3f;
   color: #fff;
   text-align: center;
   padding: 20px;
   font-size: 0.9em;
+}
+footer img{
+  width: 8%;
+  height: 28%;
+  position: relative;
 }
 .imagenes-banner {
   display: flex;
@@ -367,11 +405,25 @@ footer {
 }
 #title-np{
   display: flex;
-  background-color: #152144;
+  background: #020024;
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 52%, rgb(3, 150, 69) 100%);
+  border-radius: 20px;
+  color: #ffffff;
+  padding: 3px;
+  border: 1px solid #494949;
+}
+#title-np1{
+  display: flex;
+  background: #020024;
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 52%, rgba(24, 189, 222, 1) 100%);
   border-radius: 20px;
   color: #fff;
   padding: 3px;
+  justify-content: center;
+  text-align: center;
+  font-size: large;
 }
+#title-np1 h2{ text-align: center;}
   .footer-container {
             background-color: #152144;
             color: white;
@@ -410,11 +462,51 @@ footer {
             margin-top: 1rem;
             font-style: italic;
         }
-
+#footer-imgs{
+  display: block;
+}
+#preguntasf{
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#preguntasf summary{
+  font-family: "Lexend", sans-serif;
+  font-weight: 500;
+  color: #000000;
+}
+#preguntasf summary:hover{
+  font-family: "Lexend", sans-serif;
+  font-weight: bold;
+  color: #007c76;
+}
+#preguntasf p{
+  font-family: "Lexend", sans-serif;
+  font-weight: normal;
+  color: #000b6b;
+}
+#preguntasff{
+  color: #000000;
+  padding: 10px;
+  background-color: #fff;
+  margin: 5px;
+  width: 98%;
+  height: 98%;
+  border-radius: 10px;
+  text-align: justify;
+}
+#galeriaxx{
+  display: flex;
+}
         @media (max-width: 768px) {
             .footer-container {
-                flex-direction: column;
+                flex-direction: row;
                 align-items: center;
                 text-align: center;
+            }
+            #galeriaxx{
+              flex-direction: column;
+              align-items: center;
             }
         }
