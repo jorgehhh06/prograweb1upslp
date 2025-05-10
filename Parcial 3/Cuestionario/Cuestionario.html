@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario - Idiomas</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        let imgDataGlobal = null;
+        function evaluateQuiz() {
+            const form = document.getElementById("quizForm");
+            const respuestas = new FormData(form);
+            let score = 0;
+            for (let value of respuestas.values()) {
+                score += parseInt(value);
+            }
+            const result = document.getElementById("result");
+            result.innerHTML = `<h2>Puntuación: ${score}/5</h2>`;
+        }
+        async function generarPDF() {
+            const elemento = document.getElementById("quizContainer");
+            const canvas = await html2canvas(elemento, { scale: 2 });
+            imgDataGlobal = canvas.toDataURL("image/png");
+            const previewDiv = document.getElementById("pdfPreview");
+            previewDiv.innerHTML = '';
+
+            const img = document.createElement("img");
+            img.src = imgDataGlobal;
+            img.style.maxWidth = "100%";
+            img.style.border = "1px solid black";
+            previewDiv.appendChild(img);
+            document.getElementById("downloadBtn").style.display = "inline-block";
+        }
+        function descargarPDF() {
+            if (!imgDataGlobal) return;
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            const imgProps = pdf.getImageProperties(imgDataGlobal);
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+            pdf.addImage(imgDataGlobal, 'PNG', 0, 0, pdfWidth, pdfHeight);
+            pdf.save("Cuestionario idiomas.pdf");
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+    <div class="container" id="quizContainer">
+        <h1>Lingüística - Sprachwissenschaft</h1>
+        <form id="quizForm">
+            <div class="question">
+                <label>¿Cuál de estos idiomas no es lengua romance</label><br>
+                <input type="radio" name="Fragen1" value="0"> Romanche<br>
+                <input type="radio" name="Fragen1" value="0">Napolitano<br>
+                <input type="radio" name="Fragen1" value="0">Rumano<br>
+                <input type="radio" name="Fragen1" value="1">Inglés
+            </div>
+            <div class="question">
+                <label>2. ¿Cuál de estas lenguas es la única en su familia de lenguas?</label><br>
+                <input type="radio" name="Fragen2" value="0">Coreano<br>
+                <input type="radio" name="Fragen2" value="1"> Vasco<br>
+                <input type="radio" name="Fragen2" value="0"> Islandés<br>
+                <input type="radio" name="Fragen2" value="0"> Cantonés
+            </div>
+            <div class="question">
+                <label>3. De estas lenguas germánicas, ¿cuál es la más cercana al viejo nórdico?</label><br>
+                <input type="radio" name="Fragen3" value="0"> Alemán<br>
+                <input type="radio" name="Fragen3" value="0"> Noruego<br>
+                <input type="radio" name="Fragen3" value="0"> Danés<br>
+                <input type="radio" name="Fragen3" value="1"> Islandés
+            </div>
+            <div class="question">
+                <label>4. ¿Cuál es la familia de lenguas más extensa a día de hoy?</label><br>
+                <input type="radio" name="Fragen4" value="1"> Indo-Europeas<br>
+                <input type="radio" name="Fragen4" value="0"> Sino-Tibetana<br>
+                <input type="radio" name="Fragen4" value="0"> Romance<br>
+                <input type="radio" name="Fragen4" value="0"> Germánica
+            </div>
+            <div class="question">
+                <label>5. ¿Cuál es el idioma oficial de Italia?</label><br>
+                <input type="radio" name="Fragen5" value="0"> Napolitano<br>
+                <input type="radio" name="Fragen5" value="0"> Siciliano<br>
+                <input type="radio" name="Fragen5" value="0"> Veneciano<br>
+                <input type="radio" name="Fragen5" value="1"> Toscano
+            </div>
+            <button type="button" onclick="evaluateQuiz()">Evaluar</button>
+            <canvas id="chartContainer" style="display: block; margin: 10px auto;"></canvas>
+        </form>
+
+        <script>
+    let chartInstance = null;
+
+    function evaluateQuiz() {
+        const form = document.getElementById("quizForm");
+        const respuestas = new FormData(form);
+        let score = 0;
+        for (let value of respuestas.values()) {
+            score += parseInt(value);
+        }
+
+        const result = document.getElementById("result");
+        result.innerHTML = `<h2>Puntuación: ${score}/5</h2>`;
+
+        createChart(score);
+    }
+
+    function createChart(score) {
+        const ctx = document.getElementById('chartContainer').getContext('2d');
+
+        if (chartInstance) {
+            chartInstance.destroy();
+        }
+
+        chartInstance = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Respuestas correctas'],
+                datasets: [{
+                    label: 'Total',
+                    data: [score],
+                    backgroundColor: 'darkblue'
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 5,
+                        stepSize: 1,
+                        ticks: {
+                            precision: 0
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    }
+</script>
+
+        <div id="result" style="margin-top: 15px;"></div>
+        <button onclick="generarPDF()">Vista previa</button>
+        <div id="pdfPreview" style="margin-top: 20px; border: 1px solid lightgray;"></div>
+        <button id="downloadBtn" style="display: none; margin-top: 10px;" onclick="descargarPDF()">Descargar PDF</button>
+    </div>
+</body>
+</html>
