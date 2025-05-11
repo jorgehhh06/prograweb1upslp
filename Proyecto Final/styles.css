@@ -510,3 +510,67 @@ footer img{
               align-items: center;
             }
         }
+/* Estilos específicos para el cotizador */
+.categoria-cotizador {
+  margin: 15px 0;
+  border: 2px solid #152144;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.categoria-cotizador summary {
+  font-weight: bold;
+  background-color: #418ce3;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.categoria-cotizador[open] summary {
+  border-radius: 5px 5px 0 0;
+}
+
+.select-producto {
+  flex: 1;
+}
+
+/* Mejoras de estilo para coincidir con el index */
+.form-cotizador input:not([type="checkbox"]),
+.form-cotizador select,
+.form-cotizador textarea {
+  background-color: white;
+  border: 1px solid #001f3f;
+}
+
+.form-cotizador select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23001f3f'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 24px;
+  appearance: none;
+}
+/* Estilos para el total */
+.total-acumulado {
+  background-color: #d8eaff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.total-acumulado label {
+  font-size: 1.2em;
+  color: #001f3f;
+  font-weight: bold;
+}
+
+#total-cotizacion {
+  font-size: 1.5em;
+  color: #28a745;
+  font-weight: bold;
+  margin-top: 8px;
+}
+#comentarios{
+  display: flex;
+}
