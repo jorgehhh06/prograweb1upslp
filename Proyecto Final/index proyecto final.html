@@ -4,27 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dog and Fish Care</title>
-  <link rel="stylesheet" href="styles.css">
-  <script>
-window.addEventListener('mouseover', initLandbot, { once: true });
-window.addEventListener('touchstart', initLandbot, { once: true });
-var myLandbot;
-function initLandbot() {
-  if (!myLandbot) {
-    var s = document.createElement('script');
-    s.type = "module"
-    s.async = true;
-    s.addEventListener('load', function() {
-      myLandbot = new Landbot.Popup({
-        configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-2930342-UQCTTHRKK5Y1GR3J/index.json',
+  <link rel="stylesheet" href="styles proyecto final.css">
+  <!-- Chatbot Landbot -->
+<script>
+  window.addEventListener('mouseover', initLandbot, { once: true });
+  window.addEventListener('touchstart', initLandbot, { once: true });
+  var myLandbot;
+  function initLandbot() {
+    if (!myLandbot) {
+      var s = document.createElement('script');
+      s.type = "module";
+      s.async = true;
+      s.addEventListener('load', function () {
+        myLandbot = new Landbot.Popup({
+          configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-2930342-UQCTTHRKK5Y1GR3J/index.json',
+        });
       });
-    });
-    s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs';
-    var x = document.getElementsByTagName('script')[0];
-    x.parentNode.insertBefore(s, x);
+      s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs';
+      var x = document.getElementsByTagName('script')[0];
+      x.parentNode.insertBefore(s, x);
+    }
   }
-}
 </script>
+
 </head>
 <body>
   <header>
@@ -37,6 +39,7 @@ function initLandbot() {
         <li><a href="#productos">Productos</a></li>
         <li><a href="#mision-vision-historia">Información extra</a></li>
         <li><a href="#reviews">Reseñas</a></li>
+        <li><a href="#blog">Blog</a></li>
         <li><a href="#title-np1">Sección de Ayuda</a></li>
 	      <li><a href="galeria.html">Galeria</a></li>
         <li><a href="cotizar.html">Cotizador</a></li>
@@ -211,10 +214,22 @@ function initLandbot() {
 
   <!-- Sección de Reseñas -->
   <section id="reviews" class="reviews">
-    <h2>Reseñas y comentarios</h2>
-    
+    <h2>Reseñas</h2>
+    <div class="review">
+      <p>"Excelente servicio y productos de calidad. ¡Recomendado!"</p>
+      <span>- Cliente 1</span>
+    </div>
+    <div class="review">
+      <p>"Atención personalizada y variedad inigualable."</p>
+      <span>- Cliente 2</span>
     </div>
   </section>
+  <!-- Sección Blog -->
+<section id="blog" class="blog-section">
+  <h2>Blog - Consejos y Novedades</h2>
+  <iframe src="https://proyectoprograweb1upslp.blogspot.com/" width="100%" height="600" frameborder="0"></iframe>
+</section>
+
   <!-- Sección ayuda -->  
   <div class="seccion_ayuda">
     <div id="title-np1"><h2>Sección de Ayuda</h2>
@@ -301,7 +316,7 @@ function initLandbot() {
   <!-- Sección de Contacto -->
   <section id="contacto" class="contacto">
     <h2>Contacto</h2>
-    <form action="https://formsubmit.co/xxxpadiciw@gmail.com" method="POST">
+    <form action="#" method="post">
       <label for="nombre">Nombre:</label>
       <input type="text" id="nombre" name="nombre" required>
       <label for="email">Email:</label>
@@ -309,7 +324,6 @@ function initLandbot() {
       <label for="mensaje">Mensaje:</label>
       <textarea id="mensaje" name="mensaje" required></textarea>
       <button type="submit">Enviar</button>
-      <input type="hidden" name="_redirect" value="https://nobodyrmz186794.free.nf/project/">
     </form>
   </section>
     <section id="mapa">
